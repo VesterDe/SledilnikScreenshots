@@ -3,13 +3,13 @@ const screenshots = require("./screenshots");
 
 const handler = async (event, context, callback) => {
   if (!event.queryStringParameters) {
-    return callback("No target");
+    return callback(undefined, "No target");
   }
 
   const chosenScreenshot = event.queryStringParameters.screen;
 
   if (!Object.keys(screenshots).includes(chosenScreenshot)) {
-    return callback("No such target");
+    return callback(undefined, "No such target");
   }
   console.log("Chosen target is", chosenScreenshot);
   let result, browser;
