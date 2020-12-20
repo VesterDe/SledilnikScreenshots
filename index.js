@@ -44,6 +44,8 @@ const handler = async (event, context, callback) => {
     }
   }
 
+  console.log("Result", result);
+
   return callback(null, result);
 };
 
