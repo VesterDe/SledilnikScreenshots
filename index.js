@@ -29,7 +29,6 @@ export const handler = async () => {
   }
 };
 
-
 app.get('/', async function (req, res) {
   const screenshot = await handler()
   res.writeHead(200,{'content-type':'image/jpg'});
@@ -37,4 +36,4 @@ app.get('/', async function (req, res) {
   return res.end()
 })
 
-app.listen(3000)
+app.listen(80)
