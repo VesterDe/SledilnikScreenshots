@@ -2,9 +2,15 @@ const chromium = require("chrome-aws-lambda");
 const screenshots = require("./screenshots");
 
 const handler = async (event, context, callback) => {
-  let result = "result";
-  let browser;
-  const screenshot = screenshots.homeTop3Cards;
+  const chosenScreenshot = event.queryStringParameters.screen;
+
+  if (!Object.keys(screenshots).includes(chosenScreenshot)) {
+    callback("No such target");
+  }
+  console.log("Chosen target is", chosenScreenshot);
+  let result, browser;
+
+  const screenshot = screenshots[chosenScreenshot];
   try {
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
