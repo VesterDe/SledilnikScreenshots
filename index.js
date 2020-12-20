@@ -46,13 +46,13 @@ const handler = async (event, context, callback) => {
     const image = await page.screenshot({ type: "jpeg", quality: 100 });
     console.log("Made screenshot");
 
-    const filename = `${chosenScreenshot}-${new Date().toISOString()}`
+    const filename = `${new Date().toISOString()}---${chosenScreenshot}.jpeg}`;
 
     result = {
       statusCode: 200,
       headers: {
         "Content-Type": "image/jpeg",
-        'Content-Disposition': `attachment; filename="${filename}.jpeg"`,
+        "Content-Disposition": `attachment; filename="${filename}.jpeg"`,
       },
       body: image.toString("base64"),
       isBase64Encoded: true,
