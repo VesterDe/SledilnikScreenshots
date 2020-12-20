@@ -14,6 +14,7 @@ const handler = async (event, context, callback) => {
     });
     const page = await browser.newPage();
     await page.goto("https://covid-19.sledilnik.org/");
+    await page.waitUntilVisible('.card-number', 5000)
     const image = await page.screenshot();
     result = {
       statusCode: 200,
