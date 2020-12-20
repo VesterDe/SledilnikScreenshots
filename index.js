@@ -46,7 +46,7 @@ const handler = async (event, context, callback) => {
     const image = await page.screenshot({ type: "jpeg", quality: 100 });
     console.log("Made screenshot");
 
-    const filename = `${new Date().toISOString()}---${chosenScreenshot}.jpeg}`;
+    const filename = `${new Date().toISOString()}---${chosenScreenshot}.jpeg`;
 
     result = {
       statusCode: 200,
