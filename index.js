@@ -1,6 +1,6 @@
 const chromium = require('chrome-aws-lambda');
 
-export const handler = async (event, context, callback) => {
+const handler = async (event, context, callback) => {
   let result = 'result';
   let browser;
 
@@ -27,3 +27,5 @@ export const handler = async (event, context, callback) => {
 
   return callback(null, result);
 };
+
+module.exports = { handler }
