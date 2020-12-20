@@ -1,6 +1,8 @@
 const chromium = require('chrome-aws-lambda');
+const express = require('express')
+const app = express()
 
-export const handler = async (event, context, callback) => {
+export const handler = async () => {
   let result = 'result';
   let browser;
 
@@ -13,15 +15,26 @@ export const handler = async (event, context, callback) => {
       ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
+    await page.goto('https://covid-19.sledilnik.org/')
+    const screenshot = await page.screenshot()
+    return screenshot
 
     // all your puppeteer things
   } catch (error) {
-    return callback(error);
+    console.log(error);
   } finally {
     if (browser !== null) {
       await browser.close();
     }
   }
-
-  return callback(null, result);
 };
+
+
+app.get('/', async function (req, res) {
+  const screenshot = await handler()
+  res.writeHead(200,{'content-type':'image/jpg'});
+  res.write(screenshot);
+  return res.end()
+})
+
+app.listen(3000)
