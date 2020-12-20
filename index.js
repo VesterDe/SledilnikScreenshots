@@ -1,9 +1,10 @@
 const chromium = require("chrome-aws-lambda");
+const screenshots = require('./screenshots')
 
 const handler = async (event, context, callback) => {
   let result = "result";
   let browser;
-
+  const screenshot = screenshots.home
   try {
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
@@ -13,17 +14,11 @@ const handler = async (event, context, callback) => {
       ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
-    await page.goto("https://covid-19.sledilnik.org/");
-    await page.waitUntilVisible('.card-number', 5000)
-    const image = await page.screenshot();
-    result = {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "image/png",
-      },
-      body: image.toString("base64"),
-      isBase64Encoded: true,
-    };
+    page.setViewport({ width: screenshot.pageWidth, height: screenshot.pageHeight })
+    await page.goto(screenshot.url);
+    await page.waitUntilVisible(screenshot.waitforSelector, 5000)
+    const image = await page.screenshot({ type: 'jpeg' });
+    result = screenshot.createResponse(image);
 
     // all your puppeteer things
   } catch (error) {
