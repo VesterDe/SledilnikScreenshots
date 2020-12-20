@@ -24,9 +24,9 @@ const handler = async (event, context, callback) => {
     await page.goto(screenshot.url);
     console.log("Went to ", screenshot.url);
     await page.waitUntilVisible(screenshot.waitForSelector, 5000);
-    await page.evaluate(() => {
-      window.scrollBy(0, screenshot.scrollY);
-    });
+    await page.evaluate((pageY) => {
+      window.scrollBy(0, pageY);
+    }, screenshot.scrollY);
     console.log("Is visible", screenshot.waitForSelector);
     const image = await page.screenshot({ type: "jpeg" });
     console.log("Made screenshot");
