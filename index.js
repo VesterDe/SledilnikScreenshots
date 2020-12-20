@@ -4,7 +4,7 @@ const screenshots = require("./screenshots");
 const handler = async (event, context, callback) => {
   let result = "result";
   let browser;
-  const screenshot = screenshots.home;
+  const screenshot = screenshots.homeTop3Cards;
   try {
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
@@ -25,7 +25,7 @@ const handler = async (event, context, callback) => {
     console.log("Went to ", screenshot.url);
     await page.waitUntilVisible(screenshot.waitForSelector, 5000);
     await page.evaluate(() => {
-      window.scrollBy(x, screenshot.scrollY);
+      window.scrollBy(0, screenshot.scrollY);
     });
     console.log("Is visible", screenshot.waitForSelector);
     const image = await page.screenshot({ type: "jpeg" });
