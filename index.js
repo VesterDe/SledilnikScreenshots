@@ -52,7 +52,7 @@ const handler = async (event, context, callback) => {
       statusCode: 200,
       headers: {
         "Content-Type": "image/jpeg",
-        "Content-Disposition": `attachment; filename="${filename}.jpeg"`,
+        "Content-Disposition": `attachment; filename="${filename}"`,
       },
       body: image.toString("base64"),
       isBase64Encoded: true,
