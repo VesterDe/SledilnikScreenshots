@@ -16,7 +16,7 @@ const handler = async (event, context, callback) => {
     const page = await browser.newPage();
     page.setViewport({ width: screenshot.pageWidth, height: screenshot.pageHeight })
     await page.goto(screenshot.url);
-    await page.waitUntilVisible(screenshot.waitforSelector, 5000)
+    await page.waitUntilVisible(screenshot.waitForSelector, 5000)
     const image = await page.screenshot({ type: 'jpeg' });
     result = screenshot.createResponse(image);
 

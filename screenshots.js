@@ -1,7 +1,7 @@
 module.exports = {
   home: {
     url: "https://covid-19.sledilnik.org/",
-    waitforSelector: "",
+    waitForSelector: ".card-number",
     pageWidth: 1024,
     pageHeight: 768,
     createResponse(image) {
