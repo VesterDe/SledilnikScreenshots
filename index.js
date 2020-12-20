@@ -14,7 +14,7 @@ const handler = async (event, context, callback) => {
       ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
-    page.setViewport({
+    await page.setViewport({
       width: screenshot.pageWidth,
       height: screenshot.pageHeight,
     });
