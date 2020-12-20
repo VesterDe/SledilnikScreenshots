@@ -13,14 +13,20 @@ const handler = async (event, context, callback) => {
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
+    console.log("Made browser");
     const page = await browser.newPage();
+    console.log("Made Page");
     await page.setViewport({
       width: screenshot.pageWidth,
       height: screenshot.pageHeight,
     });
+    console.log("Set viewport");
     await page.goto(screenshot.url);
+    console.log("Went to ", screenshot.url);
     await page.waitUntilVisible(screenshot.waitForSelector, 5000);
+    console.log("Is visible", screenshot.waitForSelector);
     const image = await page.screenshot({ type: "jpeg" });
+    console.log("Made screenshot");
     result = {
       statusCode: 200,
       headers: {
@@ -30,6 +36,7 @@ const handler = async (event, context, callback) => {
       isBase64Encoded: true,
     };
   } catch (error) {
+    console.log("ERROR", error);
     return callback(error);
   } finally {
     if (browser !== null) {
