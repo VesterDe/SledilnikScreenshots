@@ -32,7 +32,7 @@ const handler = async (event, context, callback) => {
       headers: {
         "Content-Type": "image/jpeg",
       },
-      body: image,
+      body: image.toString('base64'),
       isBase64Encoded: true,
     };
   } catch (error) {
