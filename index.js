@@ -1,7 +1,7 @@
-const chromium = require('chrome-aws-lambda');
+const chromium = require("chrome-aws-lambda");
 
 const handler = async (event, context, callback) => {
-  let result = 'result';
+  let result = "result";
   let browser;
 
   try {
@@ -13,8 +13,16 @@ const handler = async (event, context, callback) => {
       ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
-    await page.goto('https://covid-19.sledilnik.org/')
-    result = await page.screenshot()
+    await page.goto("https://covid-19.sledilnik.org/");
+    const image = await page.screenshot();
+    result = {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "image/png",
+      },
+      body: image.toString("base64"),
+      isBase64Encoded: true,
+    };
 
     // all your puppeteer things
   } catch (error) {
@@ -28,4 +36,4 @@ const handler = async (event, context, callback) => {
   return callback(null, result);
 };
 
-module.exports = { handler }
+module.exports = { handler };
