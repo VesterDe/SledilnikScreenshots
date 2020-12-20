@@ -24,6 +24,9 @@ const handler = async (event, context, callback) => {
     await page.goto(screenshot.url);
     console.log("Went to ", screenshot.url);
     await page.waitUntilVisible(screenshot.waitForSelector, 5000);
+    await page.evaluate(() => {
+      window.scrollBy(x, screenshot.scrollY);
+    });
     console.log("Is visible", screenshot.waitForSelector);
     const image = await page.screenshot({ type: "jpeg" });
     console.log("Made screenshot");
@@ -32,7 +35,7 @@ const handler = async (event, context, callback) => {
       headers: {
         "Content-Type": "image/jpeg",
       },
-      body: image.toString('base64'),
+      body: image.toString("base64"),
       isBase64Encoded: true,
     };
   } catch (error) {
