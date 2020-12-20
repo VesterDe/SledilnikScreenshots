@@ -38,12 +38,12 @@ const handler = async (event, context, callback) => {
       window.scrollBy(0, pageY);
     }, screenshot.scrollY);
     console.log("Is visible", screenshot.waitForSelector);
-    const image = await page.screenshot({ type: "jpeg" });
+    const image = await page.screenshot({ type: "png" });
     console.log("Made screenshot");
     result = {
       statusCode: 200,
       headers: {
-        "Content-Type": "image/jpeg",
+        "Content-Type": "image/png",
       },
       body: image.toString("base64"),
       isBase64Encoded: true,
