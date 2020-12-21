@@ -17,6 +17,7 @@ module.exports = {
     url: "https://covid-19.sledilnik.org/embed.html#/chart/Patients",
     waitForSelector: ".highcharts-root",
     beforeShot: function() {
+      Highcharts.charts[0].series[0].animationTimeout = 0
       Highcharts.charts[0].series[0].hide()
       Highcharts.charts[0].series[1].hide()
       Highcharts.charts[0].series[4].hide()
