@@ -44,6 +44,13 @@ const handler = async (event, context, callback) => {
     await page.evaluate((pageY) => {
       window.scrollBy(0, pageY);
     }, screenshot.scrollY);
+
+    if(screenshot.beforeShot){
+      await page.evaluate(screenshot.beforeShot)
+      await page.waitForTimeout(2000)
+      console.log("Interacted with page");
+    }
+
     const image = await page.screenshot({ type: "png" });
     console.log("Made screenshot");
 
