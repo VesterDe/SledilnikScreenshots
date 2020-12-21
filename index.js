@@ -31,6 +31,7 @@ const handler = async (event, context, callback) => {
     await page.setViewport({
       width: screenshot.pageWidth,
       height: screenshot.pageHeight,
+      deviceScaleFactor: 2
     });
     console.log("Set viewport");
 
@@ -43,15 +44,16 @@ const handler = async (event, context, callback) => {
     await page.evaluate((pageY) => {
       window.scrollBy(0, pageY);
     }, screenshot.scrollY);
-    const image = await page.screenshot({ type: "jpeg", quality: 100 });
+    const image = await page.screenshot({ type: "png" });
     console.log("Made screenshot");
 
-    const filename = `${new Date().toISOString()}---${chosenScreenshot}.jpeg`;
+    const filename = `${new Date().toISOString()}---${chosenScreenshot}.png`;
+    console.log("Filename is ", filename);
 
     result = {
       statusCode: 200,
       headers: {
-        "Content-Type": "image/jpeg",
+        "Content-Type": "image/png",
         "Content-Disposition": `attachment; filename="${filename}"`,
       },
       body: image.toString("base64"),
