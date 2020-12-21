@@ -30,7 +30,7 @@ module.exports = {
       document.querySelector('*').style.overflow = 'hidden'
       Highcharts.charts[0].reflow()
     },
-    pageWidth: 1000,
+    pageWidth: 1061,
     pageHeight: 553,
     scrollY: 33,
   },

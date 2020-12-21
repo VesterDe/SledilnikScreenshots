@@ -4,7 +4,7 @@ const fs = require('fs')
 
 async function run() {
 
-  const chosenScreenshot = 'homeAllCards'
+  const chosenScreenshot = 'icuStatus'
 
   const browser = await puppeteer.launch({
     headless: false,
