@@ -20,10 +20,10 @@ module.exports = {
       Highcharts.charts[0].series[0].hide()
       Highcharts.charts[0].series[1].hide()
       Highcharts.charts[0].series[4].hide()
-      Highcharts.charts[0].series[6].hide()
+      Highcharts.charts[0].series[5].hide()
     },
     pageWidth: 1200,
-    pageHeight: 500,
+    pageHeight: 545,
     scrollY: 41,
   },
 };

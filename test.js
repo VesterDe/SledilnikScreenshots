@@ -44,6 +44,6 @@ async function run() {
   console.log("Filename is ", filename);
 
   fs.writeFileSync(filename, image)
-  // return browser.close()
+  return browser.close()
 }
 run();
