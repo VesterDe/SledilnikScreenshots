@@ -47,7 +47,7 @@ const handler = async (event, context, callback) => {
 
     if(screenshot.beforeShot){
       await page.evaluate(screenshot.beforeShot)
-      await page.waitForTimeout(500)
+      await page.waitForTimeout(2000)
       console.log("Interacted with page");
     }
 
