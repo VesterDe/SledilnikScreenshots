@@ -21,9 +21,16 @@ module.exports = {
       Highcharts.charts[0].series[1].hide()
       Highcharts.charts[0].series[4].hide()
       Highcharts.charts[0].series[5].hide()
+      document.querySelector('main > .container').style['max-width'] = '100%'
+      document.querySelector('main > .container').style.padding = '0'
+      document.querySelector('.visualization.container.embeded').style['max-width'] = '100%'
+      document.querySelector('.visualization.container.embeded').style.padding = 0
+      document.querySelector('.embeded.col').style.padding = 0
+      document.querySelector('*').style.overflow = 'hidden'
+      Highcharts.charts[0].reflow()
     },
-    pageWidth: 1200,
-    pageHeight: 545,
-    scrollY: 41,
+    pageWidth: 1000,
+    pageHeight: 553,
+    scrollY: 33,
   },
 };
