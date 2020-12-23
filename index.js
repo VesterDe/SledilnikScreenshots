@@ -20,7 +20,7 @@ const handler = async (event, context, callback) => {
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath,
-      headless: chromium.headless,
+      headless: true,
       ignoreHTTPSErrors: true,
     });
     console.log("Made browser");

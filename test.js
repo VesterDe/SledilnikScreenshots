@@ -4,10 +4,10 @@ const fs = require('fs')
 
 async function run() {
 
-  const chosenScreenshot = 'icuStatus'
+  const chosenScreenshot = 'homeTop5Cards'
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     ignoreHTTPSErrors: true,
   });
 

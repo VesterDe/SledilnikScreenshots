@@ -13,6 +13,20 @@ module.exports = {
     pageHeight: 275,
     scrollY: 70,
   },
+  homeTop4Cards: {
+    url: "https://covid-19.sledilnik.org/",
+    waitForSelector: ".card-number",
+    pageWidth: 890,
+    pageHeight: 463,
+    scrollY: 85,
+  },
+  homeTop5Cards: {
+    url: "https://covid-19.sledilnik.org/",
+    waitForSelector: ".card-number",
+    pageWidth: 800,
+    pageHeight: 652,
+    scrollY: 282,
+  },
   icuStatus: {
     url: "https://covid-19.sledilnik.org/embed.html#/chart/Patients",
     waitForSelector: ".highcharts-root",
