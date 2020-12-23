@@ -20,7 +20,7 @@ module.exports = {
     pageHeight: 463,
     scrollY: 85,
   },
-  homeTop5Cards: {
+  homeLast5Cards: {
     url: "https://covid-19.sledilnik.org/",
     waitForSelector: ".card-number",
     pageWidth: 800,
