@@ -25,7 +25,7 @@ module.exports = {
     waitForSelector: ".card-number",
     pageWidth: 800,
     pageHeight: 652,
-    scrollY: 282,
+    scrollY: 275,
   },
   icuStatus: {
     url: "https://covid-19.sledilnik.org/embed.html#/chart/Patients",
