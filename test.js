@@ -4,7 +4,7 @@ const fs = require('fs')
 
 async function run() {
 
-  const chosenScreenshot = 'homeTop5Cards'
+  const chosenScreenshot = 'icuStatus'
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -36,6 +36,8 @@ async function run() {
   if(screenshot.beforeShot){
     await page.evaluate(screenshot.beforeShot)
     await page.waitForTimeout(3000)
+  } else {
+    await page.waitForTimeout(500)
   }
   const image = await page.screenshot({ type: "png" });
   console.log("Made screenshot");

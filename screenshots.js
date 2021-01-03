@@ -23,9 +23,9 @@ module.exports = {
   homeLast5Cards: {
     url: "https://covid-19.sledilnik.org/",
     waitForSelector: ".card-number",
-    pageWidth: 800,
-    pageHeight: 652,
-    scrollY: 279,
+    pageWidth: 560,
+    pageHeight: 650,
+    scrollY: 287,
   },
   icuStatus: {
     url: "https://covid-19.sledilnik.org/embed.html#/chart/Patients",
