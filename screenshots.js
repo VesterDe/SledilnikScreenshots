@@ -16,9 +16,9 @@ module.exports = {
   homeTop4Cards: {
     url: "https://covid-19.sledilnik.org/",
     waitForSelector: ".card-number",
-    pageWidth: 890,
-    pageHeight: 463,
-    scrollY: 85,
+    pageWidth: 1200,
+    pageHeight: 277,
+    scrollY: 69,
   },
   homeLast5Cards: {
     url: "https://covid-19.sledilnik.org/",
