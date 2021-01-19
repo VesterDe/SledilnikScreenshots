@@ -32,10 +32,10 @@ module.exports = {
     waitForSelector: ".highcharts-root",
     beforeShot: function() {
       Highcharts.charts[0].series[0].animationTimeout = 0
-      Highcharts.charts[0].series[0].hide()
-      Highcharts.charts[0].series[1].hide()
-      Highcharts.charts[0].series[4].hide()
-      Highcharts.charts[0].series[5].hide()
+      Highcharts.charts[0].series[0] && Highcharts.charts[0].series[0].hide()
+      Highcharts.charts[0].series[1] && Highcharts.charts[0].series[1].hide()
+      Highcharts.charts[0].series[4] && Highcharts.charts[0].series[4].hide()
+      Highcharts.charts[0].series[5] && Highcharts.charts[0].series[5].hide()
       Highcharts.charts[0].rangeSelector.clickButton(1)
       document.querySelector('main > .container').style['max-width'] = '100%'
       document.querySelector('main > .container').style.padding = '0'
