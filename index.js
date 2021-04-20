@@ -38,7 +38,7 @@ const handler = async (event, context, callback) => {
     await page.goto(screenshot.url);
     console.log("Went to ", screenshot.url);
 
-    await page.waitUntilVisible(screenshot.waitForSelector, 5000);
+    await page.waitUntilVisible(screenshot.waitForSelector, 10000);
     console.log("Is visible", screenshot.waitForSelector);
 
     await page.evaluate((pageY) => {
